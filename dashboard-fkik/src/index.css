@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { overflow-x: hidden; }
+#root { overflow-x: clip; }
+body { background-color: #f3f4f6; }
+
+/* Landscape mid-height (~400px) compacting */
+@media (orientation: landscape) and (max-height: 430px) {
+  .hero-compact {
+    min-height: 54vh !important;
+    padding-top: calc(52px + env(safe-area-inset-top, 0px)) !important;
+  }
+  .hero-title {
+    font-size: clamp(22px, 4.2vw, 32px) !important;
+    line-height: 1.12 !important;
+  }
+  .hero-subtitle { font-size: clamp(12px, 2.8vw, 18px) !important; }
+  .hero-line { font-size: clamp(11px, 2.6vw, 15px) !important; }
+  .hero-badge { font-size: clamp(10px, 2.5vw, 14px) !important; }
+}
+
+/* Compact hero tweaks for short landscape mobile screens */
+@media (orientation: landscape) and (max-height: 380px) {
+  .hero-compact {
+    min-height: 52vh !important;
+    padding-top: calc(48px + env(safe-area-inset-top, 0px)) !important;
+  }
+  .hero-title {
+    font-size: clamp(20px, 4vw, 30px) !important;
+    line-height: 1.15 !important;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.45)) !important;
+  }
+  .hero-subtitle {
+    font-size: clamp(11px, 2.6vw, 16px) !important;
+    letter-spacing: .02em !important;
+  }
+  .hero-line {
+    font-size: clamp(10px, 2.4vw, 14px) !important;
+    margin-top: .25rem !important;
+  }
+  .hero-badge {
+    font-size: clamp(10px, 2.4vw, 13px) !important;
+    padding: .25rem .5rem !important;
+    margin-top: .5rem !important;
+  }
+  .hero-wave svg {
+    height: 36px !important;
+  }
+}
+
+/* Extra compact for very short (<=340px) landscape screens */
+@media (orientation: landscape) and (max-height: 340px) {
+  /* Keep E‑SCHEDULE visible but smaller */
+  .hero-title {
+    font-size: clamp(18px, 3.6vw, 26px) !important;
+    line-height: 1.10 !important;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)) !important;
+  }
+  .hero-subtitle { font-size: clamp(10px, 2.2vw, 14px) !important; line-height: 1.15 !important; }
+  .hero-line { font-size: clamp(10px, 2.2vw, 13px) !important; }
+  .hero-tagline { display: none !important; }
+  .hero-badge { font-size: clamp(9px, 2vw, 12px) !important; }
+  .hero-compact { min-height: 56vh !important; }
+  .hero-wave svg { height: 28px !important; }
+}
+
+/* Tightest for 320px height */
+@media (orientation: landscape) and (max-height: 320px) {
+  .hero-compact { min-height: 60vh !important; }
+  /* Even smaller title, still visible */
+  .hero-title { font-size: clamp(16px, 3.2vw, 24px) !important; line-height: 1.05 !important; }
+  .hero-wave svg { height: 24px !important; }
+}
